@@ -37,3 +37,110 @@ if we neglect this function => when we click on li in lists the menue disappear
 lists.onclick = function(e){
     e.stopPropagation()
 }
+
+
+//change Background
+
+// let landingPage = document.querySelector(".landingPage")
+// let arrayImg = ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg"]
+
+// function randomizeImages(){
+    
+//      setInterval( ()=>{
+//         let randomValue = Math.floor( Math.random() * arrayImg.length )
+//         landingPage.style.backgroundImage = `url("images/${arrayImg[randomValue]}")`;
+//     },1000 )
+        
+// }
+// randomizeImages()
+
+
+
+/////////// click on setting gear//////////
+
+let gear = document.querySelector(".gear")
+let toggleSetting = document.querySelector(".toggle-setting")
+
+
+gear.onclick=function(e){
+    this.classList.toggle("fa-spin")
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// randomizeImgs();
+
+
+// // Switch Random Background Option
+// const randomBackEl = document.querySelectorAll(".random-backgrounds span");
+
+// // Loop On All Spans
+// randomBackEl.forEach(span => {
+
+//   // Click On Every Span
+//   span.addEventListener("click", (e) => {
+
+//     handleActive(e);
+
+//     if (e.target.dataset.background === 'yes') {
+
+//       backgroundOption = true;
+
+//       randomizeImgs();
+
+//       localStorage.setItem("background_option", true);
+
+//     } else {
+
+//       backgroundOption = false;
+
+//       clearInterval(backgroundInterval);
+
+//       localStorage.setItem("background_option", false);
+
+//     }
+
+//   });
+
+// });
+
+
+// // Select Landing Page Element
+// let landingPage = document.querySelector(".landing-page");
+
+// // Get Array Of Imgs
+// let imgsArray = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg"];
+
+// // Function To Randomize Imgs
+// function randomizeImgs() {
+
+//   if (backgroundOption === true) {
+
+//     backgroundInterval = setInterval(() => {
+
+//       // Get Random Number
+//       let randomNumber = Math.floor(Math.random() * imgsArray.length);
+    
+//       // Change Background Image Url 
+//       landingPage.style.backgroundImage = 'url("imgs/' + imgsArray[randomNumber] + '")';
+    
+//     }, 10000);
+
+//   }
+
+// }
+
+// randomizeImgs();

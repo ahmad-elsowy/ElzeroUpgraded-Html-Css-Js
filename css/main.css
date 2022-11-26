@@ -38,11 +38,81 @@ body{
     }
 }
 /*************************************************/
+/* Start sitting box */
+.setting-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    min-height: 100vh;
+    background-color: white;
+    z-index: 1000000;
+    padding: 10px;
+}
+.setting-container .toggle-setting{
+position: absolute;
+left: 100%;
+top: 60px;
+background-color: white;
+padding: 2px;
+}
+.setting-container .toggle-setting i{
+
+}
+.setting-container .option-box{ 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #eee;
+    border-radius: 6px;
+  
+}
+.setting-container .option-box h4{
+    color: var(--main-color);
+    padding: 10px 0;
+    font-size: 12px;
+
+}
+.setting-container .option-box .colors{
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px ;
+}
+.setting-container .option-box .colors li.active{
+    border: 2px solid white;
+}
+.setting-container .option-box .colors li{
+    width: 20px;
+    margin-left: 3px;
+    border-radius: 50%;
+    height: 20px;
+}
+.setting-container .option-box .colors li:first-child{
+    background-color: #8bc34a;
+}
+.setting-container .option-box .colors li:nth-child(2){
+    background-color: #ffc107;
+}
+.setting-container .option-box .colors li:nth-child(3){
+    background-color: #ff9800;
+}
+.setting-container .option-box .colors li:nth-child(4){
+    background-color: #00bcd4;
+}
+.setting-container .option-box .colors li:nth-child(5){
+    background-color: #f44336;
+}
+/* End sitting box */
+
+
 /* start landing page */
 .landingPage{
     background-color: #eee;
     min-height: 100vh;
-    background-image: url(/images/02.jpg);
+    /* background-image: url(/images/02.jpg); */
     background-size: cover;
     position: relative;
  
@@ -183,3 +253,4 @@ body{
 }
 
 /* end landing page */
+
