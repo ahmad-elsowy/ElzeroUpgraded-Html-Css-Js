@@ -49,6 +49,9 @@ body{
     z-index: 1000000;
     padding: 10px;
 }
+.openSettings{
+    left: -200px;
+} 
 .setting-container .toggle-setting{
 position: absolute;
 left: 100%;
@@ -56,9 +59,21 @@ top: 60px;
 background-color: white;
 padding: 2px;
 }
-.setting-container .toggle-setting i{
+.setting-container .toggle-setting .spin{
+
+    animation: spin-gear 1s linear 0.3s infinite ;
 
 }
+@keyframes spin-gear {
+    from{  
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(180deg);
+        
+    }
+}
+
 .setting-container .option-box{ 
     display: flex;
     flex-direction: column;

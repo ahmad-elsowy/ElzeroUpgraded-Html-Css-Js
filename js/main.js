@@ -58,12 +58,17 @@ lists.onclick = function(e){
 
 /////////// click on setting gear//////////
 
-let gear = document.querySelector(".gear")
-let toggleSetting = document.querySelector(".toggle-setting")
+let gear = document.querySelector(".gear") //icon
+let toggleSetting = document.querySelector(".toggle-setting") //dicv that contain the icon
 
 
 gear.onclick=function(e){
-    this.classList.toggle("fa-spin")
+    this.classList.toggle("spin")
+   
+    toggleSetting.parentElement.classList.toggle("openSettings")
+    // toggleSetting.parentElement.style.left = "-200px";
+    
+    // e.stopPropagation()
 }
 
 
