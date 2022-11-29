@@ -62,17 +62,34 @@ lists.onclick = function(e){
 let landingPage = document.querySelector(".landingPage")
 let arrayImg = ["01.jpg","02.jpg","03.jpg","04.jpg","05.jpg"]
 
+let randomValuelocal = localStorage.getItem("imageNumber")
+    landingPage.style.backgroundImage = `url("images/${arrayImg[randomValuelocal]}")`;
+
+
 function randomizeImages(){
     
     backgroundInterval = setInterval( ()=>{
     let randomValue = Math.floor( Math.random() * arrayImg.length )
-    landingPage.style.backgroundImage = `url("images/${arrayImg[randomValue]}")`;
-},1000 )
     
+    localStorage.setItem("imageNumber",randomValue)    
+
+
+    landingPage.style.backgroundImage = `url("images/${arrayImg[randomValue]}")`;
+
+   
+},1000 )
+
+    
+
 }
+
 randomizeImages()
 
+
 let backgroundOption = true;
+
+
+
 
 
 let backgroundLocalItem = localStorage.getItem("backgroundOption")
@@ -88,18 +105,19 @@ if(backgroundLocalItem !== null){
         // backgroundOption = true
         randomizeImages()
         document.querySelector(".random-backgrounds .yes").classList.add("active")
+        
     }else{
         // backgroundOption = false
         clearInterval(backgroundInterval)
         document.querySelector(".random-backgrounds .no").classList.add("active")
     }
+  
 
 }
 
 
 
 //switch random background using option box
-
 let randomBackgrounds = document.querySelectorAll(".random-backgrounds span")
 //loop on all span
 randomBackgrounds.forEach(span => {
@@ -112,14 +130,22 @@ randomBackgrounds.forEach(span => {
             backgroundOption = true;
             randomizeImages()
             localStorage.setItem("backgroundOption",true)
+          
        }else{
         backgroundOption = false;
         clearInterval(backgroundInterval)
         localStorage.setItem("backgroundOption",false)
+        
        }
+    
+  
     })
     
 })
+
+
+
+
 
 ////////////////////////End Background///////////////////////////
 /////////// click on setting gear//////////
