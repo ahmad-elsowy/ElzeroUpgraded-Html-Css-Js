@@ -48,9 +48,12 @@ body{
     background-color: white;
     z-index: 1000000;
     padding: 10px;
+    transition: 0.3s;
+    border: 2px solid #eee;
 }
 .openSettings{
     left: -200px;
+    
 } 
 .setting-container .toggle-setting{
 position: absolute;
@@ -60,17 +63,14 @@ background-color: white;
 padding: 2px;
 }
 .setting-container .toggle-setting .spin{
-
     animation: spin-gear 1s linear 0.3s infinite ;
-
 }
 @keyframes spin-gear {
     from{  
         transform: rotate(0deg);
     }
     to{
-        transform: rotate(180deg);
-        
+        transform: rotate(180deg);    
     }
 }
 
