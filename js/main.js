@@ -133,8 +133,6 @@ gear.onclick=function(e){
    
     toggleSetting.parentElement.classList.toggle("openSettings")
     // toggleSetting.parentElement.style.left = "-200px";
-
-    // e.stopPropagation()
 }
 
 //change color
