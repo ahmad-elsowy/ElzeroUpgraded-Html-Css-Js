@@ -9,6 +9,10 @@
 body{
     font-family: 'Cairo', sans-serif;
     font-family: 'Open Sans', sans-serif;
+    
+}
+html{
+    scroll-behavior: smooth;
 }
 
 .container {
@@ -302,3 +306,132 @@ opacity: 1;
 
 /*---------------- end landing page------------------ */
 
+/*----------------- start about us ------------- */
+
+.container .about-us{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px ;
+}
+@media (max-width: 767px) {
+    .container .about-us{
+        flex-direction: column;
+    }
+    .container .about-us .text h2{
+        text-align: center;
+    }
+    .container .about-us .text p{
+        text-align: center;
+    }
+}
+.container .about-us .text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;  
+}
+
+.container .about-us .text h2{
+    color: var(--main-color);
+    width: 100%;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+.container .about-us .text p{
+    line-height: 1.8;
+    font-size: 15px;
+    color: #777; 
+}
+.container .about-us .image{
+   text-align: center;
+   flex: 1;
+}
+.container .about-us .image img{
+    width: 250px;
+    
+}
+
+
+
+/*----------------- start about us ------------- */
+/* start skills */
+.our-skills {
+    padding: 30px 0;
+    background-color: #eee;
+
+}
+.our-skills .container h2 {
+text-align: center;
+color: var(--main-color);
+margin-bottom: 20px;
+}
+.our-skills .container  .skill-box{
+    background-color: #fff;
+    padding: 10px;
+    width: 100%;
+    margin: 0 auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  
+   
+}
+.our-skills .container  .skill-box .skill-name{
+    color: var(--main-color);
+    font-weight: bold;
+    width: 100px;
+    text-align: center;
+    
+}
+.our-skills .container  .skill-box .skill-progress{
+    width: 100%;
+    height: 25px;
+    background-color: #eee;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    
+    
+}
+.our-skills .container  .skill-box .skill-progress span{
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--main-color);
+  width: 0;
+  height: 100%;
+
+  transition: all 1.5s;
+}
+/* End skills */
+
+/* start our gallery */
+.our-gallery{
+    
+}
+.our-gallery .container{
+
+}
+.our-gallery .container h2{
+    text-align: center;
+color: var(--main-color);
+margin-bottom: 20px;
+}
+.our-gallery .container .boxes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.our-gallery .container .boxes .image-box{
+    width: 200px;
+    
+}
+.our-gallery .container .boxes .image-box img{
+    max-width: 100%;
+}
+
+/* End our gallery */

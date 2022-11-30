@@ -196,75 +196,19 @@ function handleActive(e){
 
 
 
+// -------------skill  progress----------------
+let spans =  document.querySelectorAll(".skill-progress span")
+let ourSkills =  document.querySelector(".our-skills")
 
-
-
-
-
-
-
-
-
-// randomizeImgs();
-
-
-// // Switch Random Background Option
-// const randomBackEl = document.querySelectorAll(".random-backgrounds span");
-
-// // Loop On All Spans
-// randomBackEl.forEach(span => {
-
-//   // Click On Every Span
-//   span.addEventListener("click", (e) => {
-
-//     handleActive(e);
-
-//     if (e.target.dataset.background === 'yes') {
-
-//       backgroundOption = true;
-
-//       randomizeImgs();
-
-//       localStorage.setItem("background_option", true);
-
-//     } else {
-
-//       backgroundOption = false;
-
-//       clearInterval(backgroundInterval);
-
-//       localStorage.setItem("background_option", false);
-
-//     }
-
-//   });
-
-// });
-
-
-// // Select Landing Page Element
-// let landingPage = document.querySelector(".landing-page");
-
-// // Get Array Of Imgs
-// let imgsArray = ["01.jpg", "02.jpg", "03.jpg", "04.jpg", "05.jpg"];
-
-// // Function To Randomize Imgs
-// function randomizeImgs() {
-
-//   if (backgroundOption === true) {
-
-//     backgroundInterval = setInterval(() => {
-
-//       // Get Random Number
-//       let randomNumber = Math.floor(Math.random() * imgsArray.length);
+window.onscroll = function(){
     
-//       // Change Background Image Url 
-//       landingPage.style.backgroundImage = 'url("imgs/' + imgsArray[randomNumber] + '")';
-    
-//     }, 10000);
+    if(window.scrollY >=600){
+        console.log("iam here")
+        spans.forEach((span)=>{
+            span.style.width = span.dataset.progress
+            console.log(span.dataset.progress)
+        })
+    }
+}
+// ------------- End skill  progress----------------
 
-//   }
-
-// }
-
-// randomizeImgs();
