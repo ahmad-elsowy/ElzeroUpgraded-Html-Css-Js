@@ -212,3 +212,29 @@ window.onscroll = function(){
 }
 // ------------- End skill  progress----------------
 
+
+//when clicking on image on gallery section
+let imageBox  = document.querySelectorAll(".image-box")
+let imgs = document.querySelectorAll(".image-box img")
+
+
+imageBox.forEach((img)=>{
+    img.onclick=function(){
+        console.log(img.dataset.imageName)////////////////////////////////////////////////solve it ya sowy
+        
+        let div = document.createElement("div")
+        let imageHeader = document.createElement("h2")
+
+        let headerName = document.createTextNode("lll")
+
+
+        let imageFull = document.createElement("img")    
+        imageHeader.appendChild(headerName)
+       div.appendChild(imageHeader)
+       div.className="div-created"
+       div.appendChild(imageFull)
+       document.body.appendChild(div)
+
+    }
+})
+
