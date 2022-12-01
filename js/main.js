@@ -110,6 +110,7 @@ if(backgroundLocalItem !== null){
         // backgroundOption = false
         clearInterval(backgroundInterval)
         document.querySelector(".random-backgrounds .no").classList.add("active")
+        
     }
   
 
@@ -200,41 +201,82 @@ function handleActive(e){
 let spans =  document.querySelectorAll(".skill-progress span")
 let ourSkills =  document.querySelector(".our-skills")
 
-window.onscroll = function(){
-    
+
+window.onscroll = function(){  
     if(window.scrollY >=600){
-        console.log("iam here")
         spans.forEach((span)=>{
-            span.style.width = span.dataset.progress
-            console.log(span.dataset.progress)
+            span.style.width = span.dataset.progress          
         })
     }
 }
 // ------------- End skill  progress----------------
 
 
-//when clicking on image on gallery section
-let imageBox  = document.querySelectorAll(".image-box")
+//creating popup when clicking on image on gallery section 
+
 let imgs = document.querySelectorAll(".image-box img")
 
+imgs.forEach((img)=>{
+    img.addEventListener('click',(e)=>{
+        //create overlay Element
+        let overlay = document.createElement('div')
+        //add class to overlay
+        overlay.className="popup-overlay"
+        //add overlay to body
+        document.body.appendChild(overlay)
+        //create popup box
+        let popupBox =  document.createElement("div")
+        //add class to popup box
+        popupBox.className="popup-box"
+         //add image-box to body
+         document.body.appendChild(popupBox)
+        //create image header
+        let imageHeading = document.createElement("h3")
+        //create text header
+        let imageText = document.createTextNode(img.alt)
+        //add text to header
+        imageHeading.appendChild(imageText)
+        //add header to popup box
+        popupBox.appendChild(imageHeading)
+        //create image element
+        let imageCreated = document.createElement("img")
+        //add source to image element
+        imageCreated.src = img.src
+        //add image to oppup box
+        popupBox.appendChild(imageCreated)
+        //create close button 
+        let closePopup = document.createElement("div") 
+        //add class to close button
+        closePopup.className='close'
+        //create X to clode popup
+        let closeText = document.createTextNode("X")
+        //add text to popup close
+        closePopup.appendChild(closeText)
+        //add popup to popupBox
+        popupBox.appendChild(closePopup)
 
-imageBox.forEach((img)=>{
-    img.onclick=function(){
-        console.log(img.dataset.imageName)////////////////////////////////////////////////solve it ya sowy
-        
-        let div = document.createElement("div")
-        let imageHeader = document.createElement("h2")
-
-        let headerName = document.createTextNode("lll")
+    })
+})
 
 
-        let imageFull = document.createElement("img")    
-        imageHeader.appendChild(headerName)
-       div.appendChild(imageHeader)
-       div.className="div-created"
-       div.appendChild(imageFull)
-       document.body.appendChild(div)
+//close popup box when click on the close button
+document.addEventListener('click',e=>{
+    if(e.target.className === "close"){
+        //remove current popup
+        e.target.parentElement.remove()
+        //remove overlay 
+        document.querySelector(".popup-overlay").remove()
 
     }
 })
-
+//close popup box when press escape [Esc] on the keyboard
+document.onkeyup = function(e){
+    console.log(e)
+    if(e.key === "Escape"){   
+            //remove current popup
+            document.querySelector(".popup-box").remove()
+            //remove overlay 
+            document.querySelector(".popup-overlay").remove()    
+    }
+}
+///////End popup
