@@ -280,3 +280,9 @@ document.onkeyup = function(e){
     }
 }
 ///////End popup
+
+// let but = document.querySelector(".contact .container .myform .right button")
+// but.onclick=(e)=>{
+//     e.preventdefault()
+//     console.log("jjj")
+// }
