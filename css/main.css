@@ -164,6 +164,39 @@ opacity: 1;
    
 }
 
+
+
+
+/* </div>
+<button class="reset-options">Reset Options</button>
+</div> */
+
+
+/* start reset button */
+
+    .reset-options{
+        background-color: red;
+        /* margin: 2px auto; */
+        width: 100%;
+        padding: 10px;
+        color: white;
+        outline: none  ;
+        border: none ;
+        cursor: pointer;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 6px;
+    }
+    .reset-options:active{
+        font-size: 13px;
+    }
+/* End reset button */
+/* End sitting box */
+
+
+
+/* start bullets */
+
 .bullets{
     position: fixed;
     transform: translate(-50%,-50%);
@@ -214,11 +247,7 @@ opacity: 1;
    
 } 
 
-/* End sitting box */
-
-
-
-
+/* End bullets */
 
 
 

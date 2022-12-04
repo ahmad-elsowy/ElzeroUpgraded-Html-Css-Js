@@ -283,31 +283,6 @@ document.onkeyup = function(e){
 
 //-----------------show-bullets-------------------//
 
-// //create element
-// let ul = document.createElement("ul")
-// //add class to ul
-// ul.className = "bullets show"
-
-// //add div to body
-// document.body.appendChild(ul)
-// //create lists
-// let li = []
-// let a =[]
-// let href = ["#about-us","#our-skills","#our-gallery","#timeline","#feature","#testimonials","#contact"]
-// for(let i = 0;i<7;i++){
-//     li[i] =  document.createElement("li")
-//     a[i]  = document.createElement("a")
-//     a[i].href =  href[i]
-// }
-
-// //add li to lists
-// for(let i = 0;i<7;i++){
-//     ul.appendChild(li[i])  
-//     li[i].appendChild(a[i])
-// }
-
-
-
 //control active
 let yes = document.querySelector(".show-bullets .yes")
 let no = document.querySelector(".show-bullets .no")
@@ -365,17 +340,28 @@ showSpans.forEach( (span)=>{
 
 
 yes.addEventListener('click' , (e)=>{
-    document.querySelector(".bullets").style.display = "block"
-    // e.target.classList.add("displayed")
+    document.querySelector(".bullets").style.display = "block"  
     localStorage.setItem("display" ,   document.querySelector(".bullets").style.display)
       
 })
 no.addEventListener('click' , (e)=>{
     document.querySelector(".bullets").style.display = "none"
-    // e.target.classList.remove("displayed")
     localStorage.setItem("display" ,   document.querySelector(".bullets").style.display)
 
 })
 
+
+// reset button
+let btn = document.querySelector(" .reset-options")
+
+btn.onclick = function(e){
+    localStorage.removeItem("color-option")
+    localStorage.removeItem("backgroundOption")
+    localStorage.removeItem("display")
+    localStorage.removeItem("imageNumber")
+    localStorage.removeItem("show-option")
+
+    window.location.reload()
+}
 
 
