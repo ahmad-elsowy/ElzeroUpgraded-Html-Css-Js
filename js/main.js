@@ -13,7 +13,6 @@ if(localStorage.getItem("color-option")   !== null){
         }
     })
 
-
 }
 
 let toggleMenue = document.querySelector(".toggle-menue")
@@ -281,8 +280,102 @@ document.onkeyup = function(e){
 }
 ///////End popup
 
-// let but = document.querySelector(".contact .container .myform .right button")
-// but.onclick=(e)=>{
-//     e.preventdefault()
-//     console.log("jjj")
+
+//-----------------show-bullets-------------------//
+
+// //create element
+// let ul = document.createElement("ul")
+// //add class to ul
+// ul.className = "bullets show"
+
+// //add div to body
+// document.body.appendChild(ul)
+// //create lists
+// let li = []
+// let a =[]
+// let href = ["#about-us","#our-skills","#our-gallery","#timeline","#feature","#testimonials","#contact"]
+// for(let i = 0;i<7;i++){
+//     li[i] =  document.createElement("li")
+//     a[i]  = document.createElement("a")
+//     a[i].href =  href[i]
 // }
+
+// //add li to lists
+// for(let i = 0;i<7;i++){
+//     ul.appendChild(li[i])  
+//     li[i].appendChild(a[i])
+// }
+
+
+
+//control active
+let yes = document.querySelector(".show-bullets .yes")
+let no = document.querySelector(".show-bullets .no")
+let showSpans = document.querySelectorAll(".show-bullets span")
+let lis = document.querySelectorAll(".bullets li")
+
+///////////////////////////////////////////////////////////
+// when click on the circle the scroll to the section////
+lis.forEach(li=>{
+    li.onclick = (e)=>{
+        console.log(e.target.dataset.section)
+        document.querySelector(e.target.dataset.section).scrollIntoView(
+            {
+                behavior:'smooth'
+            }
+        )
+    }
+})
+///////////////////////////////////////////////////////////
+
+if(localStorage.getItem("display") !== null){
+    
+        document.querySelector(".bullets").style.display = localStorage.getItem("display")
+   
+}
+
+
+if(localStorage.getItem("show-option")   !== null){
+
+    //control active class 
+    //remove active class 
+        showSpans.forEach(e =>{
+        e.classList.remove("active")
+
+        //add sctive class to element with 
+        if(e.dataset.show === localStorage.getItem("show-option")){
+            e.classList.add("active")
+        }
+    })
+
+}
+
+
+showSpans.forEach( (span)=>{
+    span.onclick = function(e){
+        showSpans.forEach(e=>{
+            e.classList.remove("active")
+            
+        })
+        e.target.classList.add("active")
+        console.log(e.target.dataset.show)
+        localStorage.setItem("show-option" , e.target.dataset.show)
+    }
+} )
+
+
+yes.addEventListener('click' , (e)=>{
+    document.querySelector(".bullets").style.display = "block"
+    // e.target.classList.add("displayed")
+    localStorage.setItem("display" ,   document.querySelector(".bullets").style.display)
+      
+})
+no.addEventListener('click' , (e)=>{
+    document.querySelector(".bullets").style.display = "none"
+    // e.target.classList.remove("displayed")
+    localStorage.setItem("display" ,   document.querySelector(".bullets").style.display)
+
+})
+
+
+

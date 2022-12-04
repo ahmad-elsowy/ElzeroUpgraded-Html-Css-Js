@@ -131,12 +131,12 @@ padding: 2px;
 
 
 /* Background */
-.setting-container .option-box .random-backgrounds{
+.setting-container .option-box.main-box .random-backgrounds{
     margin-bottom: 20px;
 
 }
-.setting-container .option-box .random-backgrounds .yes,
-.setting-container .option-box .random-backgrounds .no{
+.setting-container .option-box .box .yes,
+.setting-container .option-box .box .no{
     color: white;
     padding: 5px 20px;
     font-size: 12px;
@@ -145,16 +145,75 @@ padding: 2px;
     opacity: 0.5;
 
 }
-.setting-container .option-box .random-backgrounds .yes{
+.setting-container .option-box .box .yes{
     background-color: var(--main-color);
 }
-.setting-container .option-box .random-backgrounds .no{
+.setting-container .option-box .box .no{
     background-color: var(--main-color);
 
 }
-.setting-container .option-box .random-backgrounds .active{
+.setting-container .option-box .box .active{
 opacity: 1;
 }
+
+/* show bullets */
+
+
+.option-box .show-bullets{
+    margin-bottom: 20px;
+   
+}
+
+.bullets{
+    position: fixed;
+    transform: translate(-50%,-50%);
+    top:50% ;
+    left: 95%;
+    z-index: 10000;
+    
+}
+
+.bullets li{
+    list-style:none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border:2px solid var(--main-color);
+   
+
+}
+
+.bullets li:hover a{
+    display: block;
+}
+.bullets li a{
+    text-decoration: none;
+    position: absolute;
+    right: 100%;
+    margin-right: 20px;
+    background-color: var(--main-color);
+    padding: 5px 10px;
+    width: 120px;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+
+    display: none;
+    
+    
+}
+.bullets li a::before{
+    content: '';
+    position: absolute;
+    border: 13px solid;
+    border-color: transparent transparent transparent var(--main-color);
+    right: -26px;
+    top: 50%;
+    transform: translateY(-50%);
+   
+} 
+
 /* End sitting box */
 
 
@@ -655,9 +714,7 @@ margin-top: 10px;
     padding: 60px 0;
     margin: 0;
 }
-.feature .container{
 
-}
 .feature .container h2{
     color: var(--main-color);
     text-align: center;
@@ -713,9 +770,7 @@ margin-top: 10px;
     background-image: linear-gradient(90deg,var(--main-color) 50%,#333 50%);
     padding: 60px;
 }
-.testimonials .container{
-    
-}
+
 .testimonials .container h2{
     
     color: white;
@@ -775,9 +830,7 @@ margin-top: 10px;
     background-size: cover;
 }
 
-.contact .container{
 
-}
 .contact .container h2{ 
     color: var(--main-color);
     text-align: center;
@@ -799,9 +852,7 @@ justify-content: center;
 gap: 10px;
 
 }
-.contact .container .myform .left{
-    
-}
+
 .contact .container .myform .left input{
     padding: 10px 2px;
     margin-bottom: 10px;
@@ -809,20 +860,17 @@ gap: 10px;
 }
 .contact .container .myform .left input:focus{
     outline: none;
-    border:1px solid var(--main-color) ;
+    
 }
-.contact .container .myform .left .text{ 
+.contact .container .myform .left input:not(.text):focus{
+   
+    border-color: var(--main-color) var(--main-color) var(--main-color) #d4d4d4;
+}
+.contact .container .myform .left input:first-child:focus{
+    border-color: #d4d4d4 var(--main-color) var(--main-color) #d4d4d4;
+}
 
-}
-.contact .container .myform .left .tel{ 
 
-}
-.contact .container .myform .left .email{ 
-
-}
-.contact .container .myform .left .sub{ 
-
-}
 .contact .container .myform .right{ 
     display: flex;
     flex-direction: column;
@@ -837,7 +885,8 @@ gap: 10px;
 
 }
 .contact .container .myform .right textarea:focus{
-    border: 1px solid var(--main-color);
+    border: 1px solid ;
+    border-color:#d4d4d4 #d4d4d4 var(--main-color)  var(--main-color);
     outline: none;
 }
 .contact .container .myform .right button{ 
@@ -846,7 +895,6 @@ gap: 10px;
     width: 100%;
     padding: 10px ;
     cursor: pointer;
-    /* margin-top: 10px; */
     color: white;
     font-size: 20px;
     letter-spacing: 2px;
@@ -856,3 +904,16 @@ gap: 10px;
 
 
 /* end contact  */
+
+/* start footer */
+.footer{
+     background-color: #333;
+     padding: 20px;
+
+}
+.footer p{
+    color: white;
+    text-align: center;
+    letter-spacing: 1px;
+}
+/* End footer */
