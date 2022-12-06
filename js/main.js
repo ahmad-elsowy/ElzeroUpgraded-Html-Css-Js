@@ -1,4 +1,32 @@
-//check idf there is color in local storage 
+// //type writer effect
+// //.landingPage .mainConent h2
+// let i = 0;
+// let txt =`We Are Creative Agency`; /* The text */
+// let speed = 50; /* The speed/duration of the effect in milliseconds */
+
+// function typeWriter() {
+//   if (i < txt.length) {
+   
+//     document.querySelector(".landingPage .mainConent h2").innerHTML += txt.charAt(i);
+//     i++;
+//     setTimeout(typeWriter, speed);
+//     if(i === txt.length){
+//         i = 0
+//         console.log("iam finished")
+//     }
+// } 
+
+// }
+// typeWriter()
+
+
+
+
+
+
+
+
+//check if there is color in local storage 
 if(localStorage.getItem("color-option")   !== null){
     //set selected color to root 
     document.documentElement.style.setProperty('--main-color' , localStorage.getItem("color-option"))
@@ -22,12 +50,15 @@ let lists =  document.querySelector(".lists")
 toggleMenue.onclick = function (e){
     //to click any where in the whole toggle button
     e.stopPropagation()
+    // .x-shape
+    this.classList.toggle("x-shape");
 
     // Toggle Class on lists close to close list  menue
     lists.classList.toggle("close");
     
      // Toggle Class show-arrow on toggle buttun
-    document.querySelector(".toggle-menue").classList.toggle("show-arrow");
+     toggleMenue.classList.toggle("show-arrow");
+    
 
 }    
 
@@ -41,7 +72,8 @@ document.addEventListener('click' , (e)=>{
         if(lists.classList.contains("close")   ){
 
             lists.classList.toggle("close");
-            toggleMenue.classList.toggle("show-arrow")
+            toggleMenue.classList.remove("show-arrow")
+            toggleMenue.classList.remove("x-shape")
         }
     }
 })
@@ -363,5 +395,31 @@ btn.onclick = function(e){
 
     window.location.reload()
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

@@ -347,7 +347,13 @@ opacity: 1;
     color: white;
     margin: 0 auto 30px ;
     font-size: 40px;
+   
+    
 }
+
+/* .landingPage .mainConent .block-div{
+    width: 0;
+} */
 @media (max-width : 766px) {
     .landingPage .mainConent h2{
         font-size: 20px;
@@ -376,6 +382,31 @@ opacity: 1;
     height: 3px;
     background-color: white;
     margin-bottom: 5px;
+    transition: 0.3s;
+}
+.landingPage .container .header  .links .x-shape {
+    
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    
+    
+    
+}
+.landingPage .container .header  .links .x-shape span:nth-child(2){
+    background-color: transparent ;
+   
+}
+.landingPage .container .header  .links .x-shape span:first-child{
+    transform: rotate(-45deg) translateY(11px);
+    background-color: red;
+    
+   
+}
+.landingPage .container .header  .links .x-shape span:nth-child(3){
+    transform: rotate(45deg) translateY(-11px);
+    background-color: red;
+   
 }
 @media (max-width: 991px) {
     .landingPage .container .header .links  .toggle-menue span{
@@ -387,7 +418,7 @@ opacity: 1;
     position: absolute;
     border: 15px solid;
     border-color: transparent transparent #fff transparent;
-    bottom: 6px;
+    bottom: 17px;
     right: 20px;
 
 }
@@ -762,9 +793,11 @@ margin-top: 10px;
     padding: 15px;
     gap: 20px;
     transition: 0.3s;
+    box-shadow: 4px 5px 10px #eee;
 }
 .feature .container .boxes .box:hover{
-    box-shadow: 4px 5px 10px #eee;
+    
+    box-shadow: 2px 2px 8px rgb(193 188 186);
 }
 .feature .container .boxes .box img{
     width: 100px;
@@ -797,7 +830,7 @@ margin-top: 10px;
 
 .testimonials{
     background-image: linear-gradient(90deg,var(--main-color) 50%,#333 50%);
-    padding: 60px;
+    padding: 60px 0;
 }
 
 .testimonials .container h2{
@@ -869,9 +902,24 @@ margin-top: 10px;
 .contact .container .myform{ 
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     gap: 20px;
+    max-width: 800px;
+    margin: auto;
+    
 
+}
+@media (max-width : 767px) {
+    .contact .container .myform {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+}
+.contact .container .myform input:focus::placeholder{
+    color: white;
+    transition: 0.3s;
 }
 .contact .container .myform .left{ 
 display: flex;
@@ -879,7 +927,19 @@ flex-direction: column;
 align-items:center;
 justify-content: center;
 gap: 10px;
+flex-basis: 50%;
 
+}
+.contact .container .myform .left input{
+    width: 80%;
+}
+@media (max-width : 767px) {
+    .contact .container .myform .left input {
+      width: 100%;
+    }
+    .contact .container .myform .left{
+        width: 80%;
+    }
 }
 
 .contact .container .myform .left input{
@@ -906,17 +966,31 @@ gap: 10px;
     justify-content:center;
     align-items: center;
     gap: 10px;
-    
+    flex-basis: 50%;
+ 
 }
 .contact .container .myform .right textarea{ 
     padding: 10px;
     border:1px solid #d4d4d4;
-
+    width: 100%;
+    
 }
 .contact .container .myform .right textarea:focus{
     border: 1px solid ;
     border-color:#d4d4d4 #d4d4d4 var(--main-color)  var(--main-color);
     outline: none;
+}
+.contact .container .myform .right textarea:focus::placeholder{
+    color: white;
+    transition:0.3s;
+}
+@media (max-width : 767px) {
+    .contact .container .myform .right {
+      width: 80%;
+    }
+    .contact .container .myform .right textarea{
+        width: 100%;
+    }
 }
 .contact .container .myform .right button{ 
     background-color: var(--main-color);
@@ -946,3 +1020,4 @@ gap: 10px;
     letter-spacing: 1px;
 }
 /* End footer */
+
