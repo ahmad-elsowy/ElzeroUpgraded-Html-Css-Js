@@ -1,26 +1,108 @@
-// //type writer effect
-// //.landingPage .mainConent h2
-// let i = 0;
-// let txt =`We Are Creative Agency`; /* The text */
-// let speed = 50; /* The speed/duration of the effect in milliseconds */
-
-// function typeWriter() {
-//   if (i < txt.length) {
-   
-//     document.querySelector(".landingPage .mainConent h2").innerHTML += txt.charAt(i);
-//     i++;
-//     setTimeout(typeWriter, speed);
-//     if(i === txt.length){
-//         i = 0
-//         console.log("iam finished")
-//     }
-// } 
-
-// }
-// typeWriter()
 
 
 
+//------------------------ start Type writer effect---------------------------//
+let myAudio = document.querySelector('#audio')
+
+
+const output =  document.querySelector(".landingPage  .mainConent h2 span")
+let res;
+//typing speed
+let typespeed=300;
+//removing backspace sped
+let removeSpeed=100;
+// word identifire
+let id =0
+
+//words to be typed
+//"\xa0"  = space
+const words = [
+  "Web Developer",
+  "HTML\xa0Designer",
+  "Css\xa0FrontEnd"
+];
+
+//colors for individual words
+const colors = [
+    "#ffc107",
+    "#ff9800",
+    "#00bcd4",
+    "#f44336",
+    "#8bc34a" 
+]
+
+//amount of letters
+let charCount = 0;
+
+let time = setInterval(type , typespeed)
+//typing letter
+function type(){
+    // filter out the amount of letter from the word
+    res = words[id].substring(0,charCount)
+    // change word color
+    output.style.color = colors[id]
+    // when all letters are typed out , stop typing and start removeing
+    //adding the 3 pauses when it reaches the end
+    if(charCount >= words[id].length + 3 ){
+        //stop typing 
+        clearInterval(time)
+        //reset characters count
+        charCount = 1
+        //start removing 
+        time = setInterval(remove,removeSpeed)
+    }
+
+    // output the result
+    output.innerHTML = res
+
+    //add anoyher letter
+    charCount++
+}
+
+//removing letters
+function remove(){
+  //filter out the amount of letters from the word ,reversed
+  res = words[id].substring(0,words[id].length - charCount )
+
+  //when all letters are removed stop removing and start re-typing 
+  if(res.length <= 0){
+    //check if all word have been typed out
+    if(id >= words.length -1){
+      //if so go back to the first word
+      id = 0
+    }else{
+      //if not , change the next word
+      id++
+    }
+    //stop removing
+    clearInterval(time)
+    //reset character count
+    charCount = 0
+    //start typing again
+    time = setInterval(type, typespeed)
+  }
+
+  //output the result
+  output.innerHTML = res
+
+
+
+  //remove another letter
+  charCount++;
+
+}
+// //play ausio sound
+//     myAudio.play()
+
+// let audioBtn = document.querySelector(".close-sound")
+// audioBtn.addEventListener('click' , function(e){
+//     e.stopPropagation()
+//     myAudio.pause()
+//     audio.currentTime = 0;
+// })
+
+
+//------------------------ End Type writer effect---------------------------//
 
 
 
@@ -240,6 +322,9 @@ window.onscroll = function(){
         })
     }
 }
+
+
+
 // ------------- End skill  progress----------------
 
 
@@ -396,30 +481,124 @@ btn.onclick = function(e){
     window.location.reload()
 }
 
+// start scroll Progress
+
+let el = document.querySelector(".scroll-progress");
+let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+console.log(document.documentElement.scrollHeight);//lenth of all page 
+console.log(document.documentElement.clientHeight);//length of current section
+console.log(height);
+
+window.addEventListener("scroll", () => {
+  const scrollTop = document.documentElement.scrollTop;
+  el.style.width = `${(scrollTop / height) * 100}%`;
+
+let num =Math.round( `${(scrollTop / height) * 100}`)
+
+// start display progress number
+let progNum = document.querySelector(".scroll-progress .prog")
+progNum.innerHTML = `${num} %`
+
+// End display progress number
+
+});
+
+// start scroll Progress
+
+
+ // start scroll to top Arrow
+ let scrollTop = document.querySelector(".scroll-top")
+window.addEventListener('scroll' , ()=>{
+    
+    if(window.scrollY >= 1300){
+        scrollTop.style.display = "block"
+    }else{
+        scrollTop.style.display = "none"
+    }
+})
+
+
+scrollTop.onclick = function(e){
+    window.scrollTo({
+        top:0,
+        behavior:  "smooth"
+    })
+    // end scroll to top Arrow
+}
+
+
+
+// start  increase numbers when scrolling to its secrion 
+
+let numbers  = document.querySelectorAll(".status .container .boxes .box span")
+let ourStatus  = document.querySelector(".status")
+let started = false
+window.addEventListener('scroll' , ()=>{
+    if(window.scrollY >=3500 ){
+        if(!started){
+            numbers.forEach((n)=>{
+                startCount(n)
+            })
+        }
+        started = true
+        
+    }
+})
+function startCount(el){
+    let goal = el.dataset.goal
+    console.log(goal)
+    let count = setInterval(() => {
+        el.textContent++
+        if(el.textContent == goal){
+            clearInterval(count)
+        }
+    }, 1500 / goal );
+}
+// End  increase numbers when scrolling to its secrion 
+
+// start timer countDown calender
+/*
+/////////////html/////////
+<span class="days"></span>
+<span class="hours"></span>
+<span class="minutes"></span>
+<span class="seconds"></span>
+
+/////////////js///////////
+// The End Of The Year Date To Countdown To
+// 1000 milliseconds = 1 Second
+
+let countDownDate = new Date("Dec 31, 2021 23:59:59").getTime();
+// console.log(countDownDate);
+
+let counter = setInterval(() => {
+  // Get Date Now
+  let dateNow = new Date().getTime();
+
+  // Find The Date Difference Between Now And Countdown Date
+  let dateDiff = countDownDate - dateNow;
+
+  // Get Time Units
+  // let days = Math.floor(dateDiff / 1000 / 60 / 60 / 24);
+  let days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
+  let hours = Math.floor((dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
+  let seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
+
+  document.querySelector(".days").innerHTML = days < 10 ? `0${days}` : days;
+  document.querySelector(".hours").innerHTML = hours < 10 ? `0${hours}` : hours;
+  document.querySelector(".minutes").innerHTML = minutes < 10 ? `0${minutes}` : minutes;
+  document.querySelector(".seconds").innerHTML = seconds < 10 ? `0${seconds}` : seconds;
+
+  if (dateDiff < 0) {
+    clearInterval(counter);
+  }
+}, 1000);
+*/
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// End timer countDown calender

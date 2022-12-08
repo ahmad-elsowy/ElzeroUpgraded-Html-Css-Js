@@ -247,15 +247,63 @@ opacity: 1;
    
 } 
 
-/* End bullets */
+
+span.scroll-top{
+    position: fixed;
+    right: 30px;
+    color: var(--main-color);
+    font-size: 40px;
+    bottom: 25px;
+    z-index: 2;
+    display: none;
+    transition: 0.3s;
+    cursor: pointer;
+    animation: move-up 0.5s linear  infinite ;
+
+}
+@keyframes move-up {
+    0%,100%{
+        bottom: 25px;
+    }
+    50%{
+        bottom: 35px;
+    }
+}
 
 
+
+.scroll-progress{
+    width: 0;
+    top: 0;
+    position: fixed;
+    left: 0;
+    height: 3px;
+    background-color: var(--main-color);
+    z-index: 2;
+  
+}
+.scroll-progress .prog{
+    background-color:transparent;
+    border: 2px solid var(--main-color);
+    top: 0  ;
+    left: 0;
+    position: fixed;
+    width: 60px;
+    height: 50px;
+    padding: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-color);
+    font-weight: bold;
+    font-size: 15px;
+
+}
 
 /* ---------------start landing page -------------------*/
 .landingPage{
     background-color: #eee;
     min-height: 100vh;
-    /* background-image: url(/images/02.jpg); */
     background-size: cover;
     position: relative;
  
@@ -344,23 +392,35 @@ opacity: 1;
     z-index: 100;
 }
 .landingPage .mainConent h2{
-    color: white;
-    margin: 0 auto 30px ;
-    font-size: 40px;
-   
+    color: var(--main-color);
+    margin: 0 auto 30px;
+    font-size: 50px;
+    /* box-shadow: 10px -7px 30px #eee; */
     
 }
 
-/* .landingPage .mainConent .block-div{
-    width: 0;
-} */
+
 @media (max-width : 766px) {
     .landingPage .mainConent h2{
         font-size: 20px;
     }
 }
 .landingPage  .mainConent h2 span{
-    color: var(--main-color);
+    border-right: 2px solid ;
+    border-right-color:#fff ;
+    
+    animation: blink 0.7s linear  infinite ;
+}
+
+@keyframes blink {
+    from{
+        
+        border-right-color:#fff ;
+    }
+    to{
+        border-right-color:transparent ;
+       
+    }
 }
 .landingPage  .mainConent p{
     color: white;
@@ -883,6 +943,87 @@ margin-top: 10px;
     
 }
 /* end testimonials */
+.status{
+    padding: 60px 0;
+    background-color: #eee;
+    
+
+}
+.status .container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+}
+.status .container h2{
+    font-size: 30px;
+    color: var(--main-color);
+}
+.status .container .boxes{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+    align-items: center;
+
+}
+.status .container .boxes .box{
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+    flex: 1;
+    position: relative;
+    box-shadow: #d4d4d4 8px 7px 8px;
+}
+
+.status .container .boxes .box::before,
+.status .container .boxes .box::after
+{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 0;
+    background-color: var(--main-color);
+    transition: 0.5s;
+}
+.status .container .boxes .box::before{
+    top: 0;
+    left: 0;
+}
+.status .container .boxes .box::after{
+    bottom: 0;
+    right: 0;
+}
+.status .container .boxes .box:hover::before,
+.status .container .boxes .box:hover::after{
+    height: 100%;
+}
+
+.status .container .boxes .box i{
+    font-size: 30px;
+    color: var(--main-color);
+
+}
+.status .container .boxes .box span{
+    font-size: 50px;
+    font-weight: bold;
+
+
+}
+.status .container .boxes .box p{
+    color: var(--main-color);
+    font-size: 20px;
+
+}
+
+/* start status */
+
+/* Ens status */
 
 /* start contact */
 
