@@ -18,8 +18,8 @@ let id =0
 //"\xa0"  = space
 const words = [
   "Web Developer",
-  "HTML\xa0Designer",
-  "Css\xa0FrontEnd"
+  "FrontEnd\xa0Designer",
+  "BackEnd\xa0Designer"
 ];
 
 //colors for individual words
@@ -488,13 +488,14 @@ let height = document.documentElement.scrollHeight - document.documentElement.cl
 
 console.log(document.documentElement.scrollHeight);//lenth of all page 
 console.log(document.documentElement.clientHeight);//length of current section
-console.log(height);
 
 window.addEventListener("scroll", () => {
-  const scrollTop = document.documentElement.scrollTop;
-  el.style.width = `${(scrollTop / height) * 100}%`;
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;//returns the number of pixels an element's content is scrolled vertically
+    console.log(scrollTop)
+    console.log(height);
+  el.style.width = (scrollTop / height) * 100 + "%" ;
 
-let num =Math.round( `${(scrollTop / height) * 100}`)
+let num =Math.floor((scrollTop / height) * 100 )
 
 // start display progress number
 let progNum = document.querySelector(".scroll-progress .prog")
@@ -529,7 +530,7 @@ scrollTop.onclick = function(e){
 
 
 
-// start  increase numbers when scrolling to its secrion 
+// start  increase numbers when scrolling to its section 
 
 let numbers  = document.querySelectorAll(".status .container .boxes .box span")
 let ourStatus  = document.querySelector(".status")
@@ -547,7 +548,6 @@ window.addEventListener('scroll' , ()=>{
 })
 function startCount(el){
     let goal = el.dataset.goal
-    console.log(goal)
     let count = setInterval(() => {
         el.textContent++
         if(el.textContent == goal){
@@ -557,48 +557,124 @@ function startCount(el){
 }
 // End  increase numbers when scrolling to its secrion 
 
-// start timer countDown calender
-/*
-/////////////html/////////
-<span class="days"></span>
-<span class="hours"></span>
-<span class="minutes"></span>
-<span class="seconds"></span>
 
-/////////////js///////////
+let daye = document.querySelector(".calender .container .boxes .box .days")
+let houre = document.querySelector(".calender .container .boxes .box .hours")
+let seconde = document.querySelector(".calender .container .boxes .box  .seconds")
+let minutee = document.querySelector(".calender .container .boxes .box  .minutes")
+let sece = document.querySelector(".calender .container .boxes .box  .seconds")
+
+
+
 // The End Of The Year Date To Countdown To
-// 1000 milliseconds = 1 Second
-
-let countDownDate = new Date("Dec 31, 2021 23:59:59").getTime();
-// console.log(countDownDate);
+let countDownDate = new Date("Dec 20, 2022 23:59:59").getTime();
 
 let counter = setInterval(() => {
-  // Get Date Now
-  let dateNow = new Date().getTime();
 
-  // Find The Date Difference Between Now And Countdown Date
-  let dateDiff = countDownDate - dateNow;
+    // get date now
+let dateNow = new Date().getTime()
 
-  // Get Time Units
-  // let days = Math.floor(dateDiff / 1000 / 60 / 60 / 24);
-  let days = Math.floor(dateDiff / (1000 * 60 * 60 * 24));
-  let hours = Math.floor((dateDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((dateDiff % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((dateDiff % (1000 * 60)) / 1000);
+let diffDAte  = countDownDate - dateNow
 
-  document.querySelector(".days").innerHTML = days < 10 ? `0${days}` : days;
-  document.querySelector(".hours").innerHTML = hours < 10 ? `0${hours}` : hours;
-  document.querySelector(".minutes").innerHTML = minutes < 10 ? `0${minutes}` : minutes;
-  document.querySelector(".seconds").innerHTML = seconds < 10 ? `0${seconds}` : seconds;
+//   // Get Time Units
 
-  if (dateDiff < 0) {
+  let day= Math.floor(diffDAte / (1000 * 60 * 60 * 24));
+  let hour = Math.floor((diffDAte % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  let minute = Math.floor((diffDAte % (1000 * 60 * 60)) / (1000 * 60));
+  let second = Math.floor((diffDAte % (1000 * 60)) / 1000);
+
+
+  daye.innerHTML = day < 10 ? `0${day}` : day;
+  houre.innerHTML = hour < 10 ? `0${hour}` : hour;
+  minutee.innerHTML = minute < 10 ? `0${minute}` : minute;
+  sece.innerHTML = second < 10 ? `0${second}` : second;
+
+    if (diffDAte < 0) {
     clearInterval(counter);
-  }
+    }
 }, 1000);
-*/
-
-
-
-
 
 // End timer countDown calender
+
+
+
+//start count input characters in textarea
+
+let countSpan = document.querySelector(".contact .container .myform .right .count")
+let textArea = document.querySelector(".contact .container .myform .right textarea")
+let textAttribute = textArea.getAttribute("maxlength")
+
+// console.log(textAttribute)
+
+textArea.oninput = function(){
+    countSpan.innerHTML = 100 - textArea.value.length
+    if( countSpan.innerHTML == 0){
+        countSpan.classList.add("zero")
+    }else{
+        countSpan.classList.remove("zero")
+    }
+
+}
+
+//End count input characters in textarea
+
+
+
+
+
+// start password verification
+let myInput  = document.getElementById("psw")
+let letter = document.getElementById("letter")
+let capital = document.getElementById("capital")
+let number = document.getElementById("number")
+let length = document.getElementById("length")
+let messages = document.getElementById("messages")
+
+//Hide the message content when click anywhere outside the psw field
+myInput.onblur = function(){
+    messages.style.display = "none"
+}
+//display the messages content when focus on psw field
+myInput.onfocus = function(){
+    messages.style.display = "block"
+}
+
+myInput.oninput = function(){
+    let lowerCase = /[a-z]/g
+    if(myInput.value.match(lowerCase)){
+        letter.classList.remove("invalid")
+        letter.classList.add("valid")
+    }else{
+        letter.classList.remove("valid")
+        letter.classList.add("invalid")
+    }
+
+    let upperCase = /[A-Z]/g
+    if(myInput.value.match(upperCase)){
+        capital.classList.remove("invalid")
+        capital.classList.add("valid")
+    }else{
+        capital.classList.remove("valid")
+        capital.classList.add("invalid")
+    }
+
+    let numbers = /[0-9]/g
+    if(myInput.value.match(numbers)){
+        number.classList.remove("invalid")
+        number.classList.add("valid")
+    }else{
+        number.classList.remove("valid")
+        number.classList.add("invalid")
+    }
+
+    if(myInput.value.length >= 8){
+        length.classList.remove("invalid")
+        length.classList.add("valid")
+    }else{
+        length.classList.remove("valid")
+        length.classList.add("invalid")
+    }
+}
+
+
+

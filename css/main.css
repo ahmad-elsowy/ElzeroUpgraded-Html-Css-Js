@@ -165,13 +165,6 @@ opacity: 1;
 }
 
 
-
-
-/* </div>
-<button class="reset-options">Reset Options</button>
-</div> */
-
-
 /* start reset button */
 
     .reset-options{
@@ -191,6 +184,9 @@ opacity: 1;
         font-size: 13px;
     }
 /* End reset button */
+
+
+
 /* End sitting box */
 
 
@@ -246,8 +242,9 @@ opacity: 1;
     transform: translateY(-50%);
    
 } 
+/* End bullets */
 
-
+/* start aArrow */
 span.scroll-top{
     position: fixed;
     right: 30px;
@@ -270,7 +267,9 @@ span.scroll-top{
     }
 }
 
+/* End aArrow */
 
+/* start Scroll Progress */
 
 .scroll-progress{
     width: 0;
@@ -294,12 +293,12 @@ span.scroll-top{
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--main-color);
+    color:black;
     font-weight: bold;
     font-size: 15px;
 
 }
-
+/* End Scroll Progress */
 /* ---------------start landing page -------------------*/
 .landingPage{
     background-color: #eee;
@@ -668,7 +667,7 @@ margin-bottom: 20px;
 .timeline{
     padding: 30px 0;
     background-color: #eee;
-    /* position: relative; */
+  
 }
 
 .timeline .container h2{
@@ -943,6 +942,8 @@ margin-top: 10px;
     
 }
 /* end testimonials */
+
+/* start our status */
 .status{
     padding: 60px 0;
     background-color: #eee;
@@ -961,13 +962,13 @@ margin-top: 10px;
     color: var(--main-color);
 }
 .status .container .boxes{
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
-    align-items: center;
-
+    width: 100%;
 }
+
+
 .status .container .boxes .box{
     background-color: #fff;
     display: flex;
@@ -1024,6 +1025,83 @@ margin-top: 10px;
 /* start status */
 
 /* Ens status */
+
+
+
+/* start count down calender */
+.calender{
+    padding: 60px 0;  
+    background-color: #777;
+   
+    
+}
+.calender h2{
+   text-align: center;
+   margin-bottom: 40px;
+   color: white;
+    font-size: 35px;
+    font-weight: bold;
+}
+.calender .container .boxes{ 
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    width: 100%;
+    margin: auto;
+}
+@media (max-width : 767px) {
+    .calender .container .boxes{
+        max-width: 60vw;
+    }
+}
+.calender .container .boxes .box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    border-radius: 6px;
+    flex: 1;
+    border: 2px solid transparent ;
+    position: relative;
+   transition: 0.3s;
+}
+.calender .container .boxes .box::before{
+    content: '';
+    position: absolute;
+    background-color: transparent;
+    bottom: 50%;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transition: 0.3s;
+}
+.calender .container .boxes .box:hover{
+    transform: translateY(-20px);
+    border-color: var(--main-color);
+}
+.calender .container .boxes .box:hover::before{
+    background-color: var(--main-color);
+}
+.calender .container .boxes .box span{
+    font-size: 20px;
+    color: #9a5bff;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.calender .container .boxes .box h4{
+    color: #9a5bff;
+    margin-bottom: 20px;
+    margin-top: 60px;
+    font-size: 20px;
+}
+
+/* End count sown calender */
+
+/* start count down calender */
 
 /* start contact */
 
@@ -1108,12 +1186,35 @@ flex-basis: 50%;
     align-items: center;
     gap: 10px;
     flex-basis: 50%;
+
+    position: relative;
  
 }
 .contact .container .myform .right textarea{ 
     padding: 10px;
     border:1px solid #d4d4d4;
     width: 100%;
+    
+    
+}
+.contact .container .myform .right .count{
+    background-color: transparent;
+    border: 2px solid var(--main-color);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -41px;
+    bottom: 52px;
+    font-weight: bold;
+    transition: 0.7s;
+}
+.contact .container .myform .right .zero{
+    color: red;
+    border-radius: 50%;
+    border-color: black;
     
 }
 .contact .container .myform .right textarea:focus{
@@ -1148,7 +1249,93 @@ flex-basis: 50%;
 
 
 /* end contact  */
+/* Start password vrerificatin */
+.pass-verify{
+    padding: 60px 0;
+    margin: 0;
+}
+.pass-verify .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+   
+}
+.pass-verify .container form{
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    gap: 10px;
+   
+}
+.pass-verify .container form label{
+    font-size: 20px;
 
+}
+.pass-verify .container form input{
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #d4d4d4;
+    outline: none;
+    
+}
+.pass-verify .container form input:last-child{
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.pass-verify .container .messages{
+    background-color: #eee;
+    width: 100%;
+    text-align: left;
+    padding: 20px;
+   display: none;
+    
+
+}
+.pass-verify .container .messages h3{
+    font-size: 25px;
+
+
+}
+.pass-verify .container .messages p{
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 30px;  
+}
+.pass-verify .container .messages .valid{
+    color: green;
+}
+.pass-verify .container .messages .valid::before{
+    content: '\f00c';
+    font-family: "Font Awesome 5 free"; 
+      font-weight: 900;
+      position: relative;
+      left: -25px;
+}
+.pass-verify .container .messages .invalid{
+    color: red;
+}
+.pass-verify .container .messages .invalid::before{
+    content: '\f00d';
+    font-family: "Font Awesome 5 free"; 
+      font-weight: 900;
+      position: relative;
+      left: -25px;
+}
+
+
+
+/* End password vrerificatin */
 /* start footer */
 .footer{
      background-color: #333;
@@ -1159,6 +1346,10 @@ flex-basis: 50%;
     color: white;
     text-align: center;
     letter-spacing: 1px;
+}
+.footer p span{
+    color: red;
+    font-size: 20px;
 }
 /* End footer */
 

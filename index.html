@@ -366,11 +366,42 @@
 
 <!-- End status -->
 
+<!-- start timer countDown calender -->
+
+
+<div class="calender" id="calender">
+    <h2>Birth Day Count Down </h2>
+    <div class="container">
+        <div class="boxes">
+            <div class="box">
+                <span class="days">00</span>
+                <h4>Days</h4>
+            </div>
+            <div class="box">
+                <span class="hours">00</span> 
+                <h4>Hours</h4>
+            </div>
+            <div class="box">
+                <span class="minutes">00</span>
+                <h4>Minutes</h4>
+            </div>
+            <div class="box">
+                <span class="seconds">00</span>
+                <h4>Seconds</h4>
+            </div>
+        </div>
+    </div>  
+</div>
+
+<!-- End timer countDown calender-->
+
+
     <!-- start contact -->
     <div class="contact" id="contact">
+        
         <div class="container">
             <h2>Contact Us</h2>
-            <form action="" class="myform">
+            <form  class="myform">
                 <div class="left">
                     <input type="text" name="" id="name" placeholder="Your Name"  class="text">
                     <input type="tel" name="" id="phone" placeholder="Your Phone" class="tel">
@@ -378,7 +409,8 @@
                     <input type="text" name="" id="subject" placeholder="Subject" class="sub">
                 </div>
                 <div class="right">
-                    <textarea name="" id="message" cols="30" rows="8" placeholder="Your Message" class="message"></textarea>
+                    <textarea  id="message" cols="30" rows="8" placeholder="Your Message" class="message" maxlength="100" ></textarea>
+                    <span class="count">100</span>
                     <button>Send</button>
                 </div>
                
@@ -387,9 +419,35 @@
     </div>
     <!-- End  contact -->
 
+    <!-- start PASSWORD VERIFICATION -->
+    <div class="pass-verify" id="pass-verify">
+        <div class="container">
+            <form action="">
+                <label for="username">Username</label>
+                <input type="text" name="name" id="name" required>
+
+                <label for="psw">Password</label>
+                <input type="password" name="psw" id="psw" title="Must contain at least 8 characters or more and at least one number and one upercase and one lowercase" required>
+                
+                <input type="submit" name="" id="" value="submit">
+            </form>
+
+            <div class="messages" id="messages">
+                <h3>Password must contain the following:</h3>
+                <p class="invalid" id="letter"> A Lowercase letter</p>
+                <p class="invalid" id="capital">A capital (upperCase) letter</p>
+                <p class="invalid" id="number">A number</p>
+                <p class="invalid" id="length">8 characters</p>
+                
+            </div>
+        </div>
+    </div>
+    <!-- End PASSWORD VERIFICATION -->
+
+
     <!-- start footer -->
     <div class="footer">
-        <p>Created With Love By Ahmed Elsowy</p>
+        <p>Created With <span> &#x2665;</span> By Ahmed Elsowy</p>
     </div>
 
     <!-- End footer -->
